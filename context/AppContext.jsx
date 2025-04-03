@@ -9,6 +9,7 @@ export const useAppContext = () => {
     return useContext(AppContext)
 }
 
+
 export const AppContextProvider = (props) => {
 
     const currency = process.env.NEXT_PUBLIC_CURRENCY
