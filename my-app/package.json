@@ -12,6 +12,8 @@
   "dependencies": {
     "@clerk/nextjs": "^6.14.3",
     "ecommerce-inngest": "file:",
+    "ingest": "^1.0.0",
+    "inngest": "^3.35.0",
     "mongoose": "^8.13.2",
     "next": "^15.2.4",
     "react": "^19.0.0",
@@ -20,6 +22,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/node": "22.14.0",
+    "@types/react": "19.1.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
