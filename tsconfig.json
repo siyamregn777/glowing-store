@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "middleware.bak.js"  ],
+, "middleware.js"  ],
   "exclude": [
     "node_modules"
   ]
