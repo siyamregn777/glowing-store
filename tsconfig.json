@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "middleware.js"  ],
+, "middleware.js", "app/api/inngest/route.js"  ],
   "exclude": [
     "node_modules"
   ]
