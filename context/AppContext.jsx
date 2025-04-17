@@ -22,7 +22,6 @@ export const AppContextProvider = (props) => {
 
     const {getToken} = useAuth()
 
-
     const [products, setProducts] = useState([])
     const [userData, setUserData] = useState(false)
     const [isSeller, setIsSeller] = useState(false)
