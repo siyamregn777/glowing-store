@@ -1,6 +1,6 @@
-import { inngest } from "@/config/inngest";
-import Product from "@/models/Product";
-import User from "@/models/User";
+import { inngest } from "../../../../config/inngest";
+import Product from "../../../../models/Product";
+import User from "../../../../models/User";
 import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
@@ -18,7 +18,7 @@ export async function POST(request) {
 
         const amount= await items.reduce(async (acc, item) => {
             const product = await Product.findById(item.product);
-            return acc + product.offerPrice * item.quantity;
+            return await acc + product.offerPrice * item.quantity;
         },0)
 
         await inngest.send({

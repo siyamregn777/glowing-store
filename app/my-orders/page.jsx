@@ -6,22 +6,46 @@ import { useAppContext } from "../../context/AppContext";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Loading from "../../components/Loading";
+import { headers } from "next/headers";
 
 const MyOrders = () => {
 
-    const { currency } = useAppContext();
+    const { currency, getToken,user } = useAppContext();
 
+    
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const fetchOrders = async () => {
-        setOrders(orderDummyData)
-        setLoading(false);
+        try{
+            const token = await getToken();
+            const {data} = await axois.get('/api/order/list', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            if(data.success){
+                setOrders(data.orders.reverse());
+                setLoading(false);
+            }
+            else{
+                toast.error(data.message)
+            }
+
+
+        }
+        catch(err){
+            console.log(err)
+            toast.err(err.message)
+
+        }
     }
 
     useEffect(() => {
-        fetchOrders();
-    }, []);
+        if(user){
+            fetchOrders();
+        }
+    }, [user]);
 
     return (
         <>

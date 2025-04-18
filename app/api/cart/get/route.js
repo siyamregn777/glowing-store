@@ -4,9 +4,9 @@ import User from "../../../../models/User";
 import { NextResponse } from "next/server"
 
 
-export async function Get(req){
+export async function GET(req){
     try{
-        const {userId} = getAuth
+        const {userId} = getAuth(req)
 
         await connectDb()
         const user = await User.findById(userId)

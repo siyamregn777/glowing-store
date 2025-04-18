@@ -1,4 +1,5 @@
-import { addressDummyData } from "../assets/assets";
+// import { headers } from "next/headers";
+// import { addressDummyData } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 import React, { useEffect, useState } from "react";
 
@@ -41,7 +42,41 @@ const OrderSummary = () => {
   };
 
   const createOrder = async () => {
+    try{
+      if(!selectedAddress){
+        toast.error("Please select an address")
+        return
+      }
 
+      let cartItemsArray = object.keys(cartItems).map((key) => ({prosuct:key, quantity: cartItems[key]}))
+      cartItemsArray = cartItemsArray.filter((item) => item.quantity > 0)
+      if(cartItemsArray.length === 0){
+        
+        return toast.error("Please add items to cart")
+      }
+      const token = await getToken()
+
+      const {data} = await axios.post("/api/order/create", {
+        address: selectedAddress_id,
+        cartItems: cartItemsArray,
+      },{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      if(data.success){
+        toast.success(data.message)
+        setCartItems({})
+        router.push("/order-placed")
+      }
+      else{
+        toast.error(data.message)
+      }
+
+    }
+    catch(error){
+      toast.error(error.message)
+    }
   }
 
   useEffect(() => {

@@ -8,19 +8,42 @@ import Loading from "../../../components/Loading";
 
 const Orders = () => {
 
-    const { currency } = useAppContext();
+    const { currency ,getToken ,user } = useAppContext();
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const fetchSellerOrders = async () => {
-        setOrders(orderDummyData);
-        setLoading(false);
+        try{
+            const token= await getToken();
+            const {data} = await axios.get('/api/order/seller-orders', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if(data.success){
+                setOrders(data.orders.reverse());
+                setLoading(false);
+            }
+            else{
+                toast.error(data.message)
+            }
+
+        }
+        catch(err){
+            console.log(err)
+            toast.err(err.message)
+            setLoading(false);
+        }
+
     }
 
     useEffect(() => {
+        if(user){
         fetchSellerOrders();
-    }, []);
+        }
+    }, [user]);
 
     return (
         <div className="flex-1 h-screen overflow-scroll flex flex-col justify-between text-sm">

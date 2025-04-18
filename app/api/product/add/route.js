@@ -1,10 +1,10 @@
-import { getAuth } from "@clerk/nextjs/dist/types/server";
+import { getAuth } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from "cloudinary";
-import { get } from "http";
+// import { get } from "http";
 import authSeller from "../../../../lib/authSeller";
-import { rejects } from "assert";
-import connectDb from "../../../../../config/db";
-import Product from "../../../../../models/Product";
+// import { rejects } from "assert";
+import connectDb from "../../../../config/db";
+import Product from "../../../../models/Product";
 import { NextResponse } from "next/server";
 
 cloudinary.config({
