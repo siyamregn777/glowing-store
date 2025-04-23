@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { type } from 'os';
+// import { type } from 'os';
 
 const  productSchema = new mongoose.Schema({
     userId: { type: String, required: true , ref : "user"},
