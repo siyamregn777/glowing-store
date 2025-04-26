@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import { FiMail, FiPhone, FiMapPin, FiClock } from 'react-icons/fi';
 import axios from 'axios';
 import { useState } from 'react';
+import Footer from '../../components/Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -239,7 +240,10 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
+    
   )
 }
 
