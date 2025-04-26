@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from '../../components/Footer';
 import image from "../../assets/pexels-danxavier-1239291.jpg"
 import image1 from "../../assets/pexels-justin-shaifer-501272-1222271.jpg"
 import image2 from "../../assets/pexels-olly-733872.jpg"
@@ -138,6 +139,8 @@ const About = () => {
           
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }
