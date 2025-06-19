@@ -26,7 +26,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-    
     try {
       await axios.post('/api/send', formData);
       setIsSent(true);
