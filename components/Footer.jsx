@@ -8,13 +8,10 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row items-start justify-center px-6 md:px-16 lg:px-32 gap-10 py-14 border-b border-gray-500/30 text-gray-500">
         
         <div className="w-4/5">
-          <Image 
-            className="w-24 md:w-28" 
-            src={image} 
-            width={112}
-            height={40} 
-            alt="logo" 
-          />
+          
+          <div className="tracking-tight w-24 md:w-28 cursor-pointer hover:transition-all hover:scale-150 hover:duration-700" onClick={()=>router.push('/')}>
+            <span className="text-red-500">ONE</span><span>Place</span> 
+          </div>
           <p className="mt-3 text-sm">
             Founded in 2015, we started as a small team with a big dream: 
             to revolutionize online shopping. What began as a passion project 
@@ -56,7 +53,7 @@ const Footer = () => {
       </div>
 
       <p className="py-4 text-center text-xs md:text-sm">
-        Copyright 2025 © Glowing Store. All Right Reserved.
+        Copyright 2025 © <span className="text-red-500">ONE</span><span>Place</span> . All Right Reserved.
       </p>
     </footer>
   );
