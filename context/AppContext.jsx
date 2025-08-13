@@ -36,7 +36,6 @@ export const AppContextProvider = ({ children }) => {
         //     toast.error(err.message);
         // }
     };
-
     const fetchUserData = async () => {
         try {
             if (status === "authenticated") {
@@ -149,8 +148,6 @@ export const AppContextProvider = ({ children }) => {
 
 
 // // context/AppContext.jsx
-
-
 
 // 'use client'
 // import { productsDummyData, userDummyData } from "../assets/assets";
